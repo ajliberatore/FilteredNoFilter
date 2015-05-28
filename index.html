@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FilteredNoFilter</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<script type="text/javascript" src="js/instafeed.js/instafeed.min.js"></script>
+</head>
+<body>
+	
+	<div id="instawrap">
+		<h1>Filtered #nofilter</h1>
+		<div id="instafeed"></div>
+		<!-- instafeed.js puts photos in div with id="instafeed" -->
+		<script type="text/javascript">
+	    var feed = new Instafeed({
+	        get: 'tagged', 
+	        tagName: 'nofilter', //gets photos with #nofilter
+	        clientId: '####################',
+	        limit: 60,
+	        filter: function(image) {
+	        	//return image if it is not using 'Normal' filter
+    			return image.filter !== 'Normal'; 
+  			} 
+	    });
+	    feed.run(); //run the Instafeed
+		</script>
+
+	</div>
+</body>
+</html>
