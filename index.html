@@ -12,15 +12,22 @@
 		<div id="instafeed"></div>
 		<!-- instafeed.js puts photos in div with id="instafeed" -->
 		<script type="text/javascript">
+		var count = 0;
 	    var feed = new Instafeed({
 	        get: 'tagged', 
 	        tagName: 'nofilter', //gets photos with #nofilter
-	        clientId: '####################',
+	        clientId: '#####################',
 	        limit: 60,
 	        filter: function(image) {
 	        	//return image if it is not using 'Normal' filter
     			return image.filter !== 'Normal'; 
-  			} 
+  			},
+  			after: function () {
+  				if (this.hasNext() && count <= 10) {
+  					this.next();
+  					count++;
+  				}
+  			}
 	    });
 	    feed.run(); //run the Instafeed
 		</script>
