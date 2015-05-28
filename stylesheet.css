@@ -20,4 +20,9 @@ h1 {
 #instawrap img {
 	border-radius: 7%;
 	padding: 2px;
+	opacity: 0.8;
+}
+
+#instawrap img:hover {
+	opacity: 1;
 }
